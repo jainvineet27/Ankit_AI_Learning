@@ -1,0 +1,5 @@
+google-genai
+numpy
+pandas
+dotenv
+streamlit

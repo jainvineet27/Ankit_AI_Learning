@@ -1,0 +1,5 @@
+.vscode
+.env
+.python-version
+pyproject.toml
+uv.lock
