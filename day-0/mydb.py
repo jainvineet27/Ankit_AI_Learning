@@ -24,26 +24,21 @@ conn_str = (
 params = urllib.parse.quote_plus(conn_str)
 engine = create_engine(f"mssql+pyodbc:///?odbc_connect={params}")
 
-# 4. Run a query
-query = "SELECT * FROM dbo.transactions"
-# df = pd.read_sql(query, engine)
-
 
 def execute_query(query):
     with engine.connect() as conn:
         df = pd.read_sql(query, conn)
-
     return df
 
-def get_schema(schema_name ,table_name):
+def get_schema(table_name,schema_name="dbo"):
     """ This functon is helpful in returning the schema and its columns """
     query  =  f'''
             SELECT COLUMN_NAME,     DATA_TYPE
             FROM INFORMATION_SCHEMA.COLUMNS
-            WHERE TABLE_NAME={table_name} and TABLE_SCHEMA ={schema_name}
+            WHERE TABLE_NAME='{table_name}' and TABLE_SCHEMA ='{schema_name}'
             order by ORDINAL_POSITION
     '''
     return execute_query(query)
 
+print(get_schema("transactions"))
 
-#print(get_schema('dbo','transaction'))
