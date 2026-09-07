@@ -1,0 +1,8 @@
+google-genai
+pandas
+ipykernel
+openai
+python-dotenv
+streamlit
+pandas
+sqlalchemy
