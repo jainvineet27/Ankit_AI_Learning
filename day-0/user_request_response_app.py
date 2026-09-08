@@ -55,6 +55,7 @@ if user_input:
             1. If the question is valid and can be answered using the table schema, output ONLY the raw executable T-SQL query (e.g., starting with SELECT).
             2. Do NOT use markdown code fences (```sql or ```).
             3. If the user input is gibberish, meaningless, off-topic, or cannot be answered from the schema, output exactly: INVALID_INPUT
+            4. Do no allow user to make the DELETE , UPDATE , DROP , TRUNCATE , INSERT request the information in the tables ,output exactly: INVALID_INPUT  
             """
             
             sql_response = client.models.generate_content(
@@ -64,24 +65,51 @@ if user_input:
             )
             
             generated_output = sql_response.text.strip().replace("```sql", "").replace("```", "").strip()
+            print(generated_output)
             
-            # Step C: Handle Bad Input vs Executable SQL
+      # ... (inside your user_input block under "assistant")
+
             if "INVALID_INPUT" in generated_output or not generated_output.upper().startswith(("SELECT", "WITH")):
                 assistant_reply = "Sorry, I couldn't understand your question. Kindly try again with a question related to your transactions data."
                 st.warning(assistant_reply)
+                st.session_state.messages.append({"role": "assistant", "type": "text", "content": assistant_reply})
             else:
-                # Step D: Safe Execution
                 try:
-                    query_result = execute_query(generated_output)
+                    # Step 1: Run query and get DataFrame
+                    df_result = execute_query(generated_output)
                     
+                    # Step 2: Show SQL query in expander
                     with st.expander("Generated SQL Query"):
                         st.code(generated_output, language="sql")
                     
-                    assistant_reply = str(query_result)
-                    st.write(assistant_reply)
-                except Exception as e:
-                    assistant_reply = f"Could not process the query: {e}"
-                    st.error(assistant_reply)
+                    # Step 3: Display entire output in Streamlit UI
+                    if df_result.empty:
+                        st.info("Query executed successfully, but returned 0 rows.")
+                        st.session_state.messages.append({"role": "assistant", "type": "text", "content": "No rows returned."})
+                    else:
 
-        # Append assistant response to memory
-        st.session_state.messages.append({"role": "assistant", "content": assistant_reply})
+                        st.write(f"**Found {len(df_result)} record(s):**")
+                        print(">>>>>>>>>>>>>>> ",len(df_result))
+                        st.dataframe(df_result, use_container_width=True)
+                        
+                        # Step 4: CSV Download Button
+                        csv_data = df_result.to_csv(index=False).encode('utf-8')
+                        st.download_button(
+                            label="📥 Download Report as CSV",
+                            data=csv_data,
+                            file_name="query_report.csv",
+                            mime="text/csv",
+                            key="download_csv_current"
+                        )
+                        
+                        # Save into memory so it stays visible across runs
+                        st.session_state.messages.append({
+                            "role": "assistant", 
+                            "type": "dataframe", 
+                            "content": df_result
+                        })
+                        
+                except Exception as e:
+                    error_msg = f"Could not process the query: {e}"
+                    st.error(error_msg)
+                    st.session_state.messages.append({"role": "assistant", "type": "text", "content": error_msg})
