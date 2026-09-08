@@ -7,3 +7,5 @@ ipykernel
 openai
 python-dotenv
 sqlalchemy
+pyodbc
+anthropic

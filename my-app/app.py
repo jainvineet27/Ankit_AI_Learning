@@ -14,7 +14,7 @@ st.title("Document RAG Chat")
 # (Aap API key yahan pass kar sakte hain ya environment variable GEMINI_API_KEY use kar sakte hain)
 #API_KEY = os.environ.get("GEMINI_API_KEY", "YOUR_GEMINI_API_KEY")
 load_dotenv() 
-api_key = os.getenv("API_KEY")
+api_key = os.getenv("GEMINI_API_KEY")
 client = genai.Client(api_key=api_key)
 
 
@@ -69,6 +69,7 @@ user_input = st.chat_input("Apne document ke bare mein sawal poochein...")
 if user_input:
     # Step A: User message show aur save karein
     st.session_state.messages.append({"role": "user", "content": user_input})
+
     with st.chat_message("user"):
         st.write(user_input)
 
@@ -86,9 +87,9 @@ if user_input:
                 User Question:
                 {user_input}
                 """
-            # Gemini 2.5 Flash call
+            # Gemini 3.5 Flash call
             response = client.models.generate_content(
-                model="gemini-2.5-flash",
+                model="gemini-3.5-flash",
                 contents=prompt,
                 config=types.GenerateContentConfig(
                     temperature=0.2,
