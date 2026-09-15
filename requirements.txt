@@ -3,3 +3,8 @@ numpy
 pandas
 dotenv
 streamlit
+openai
+ipykernel
+psycopg
+sqlalchemy
+psycopg[binary]
