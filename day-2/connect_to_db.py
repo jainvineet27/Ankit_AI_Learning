@@ -31,7 +31,19 @@ def get_schema(table_name):
     return schema
 
 
-# result = execute_query("select * from orders limit 5")
+def get_table(table_name):
+    query = f'''
+            SELECT
+    table_name ,       table_schema    
+    FROM information_schema.table
+    where table_schema= 'public' and table_name = '{table_name}'
+    ORDER BY ordinal_position;
+        '''
+    tables  = execute_query(query)
+    return tables
+
+
+#result = execute_query("select * from orders limit 5")
 # print(result)
-# result = get_schema('orders')
+result = get_table('orders')
 # print(result)
