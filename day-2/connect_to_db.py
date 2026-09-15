@@ -34,8 +34,8 @@ def get_schema(table_name):
 def get_table(table_name):
     query = f'''
             SELECT
-    table_name ,       table_schema    
-    FROM information_schema.table
+    table_name ,  table_schema    
+    FROM information_schema.columns
     where table_schema= 'public' and table_name = '{table_name}'
     ORDER BY ordinal_position;
         '''

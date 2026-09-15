@@ -7,27 +7,21 @@ okay so what odi havr to achivie in this project
  we would be making this two tools and supply to the open ai tool paramters
  
  prompt seciton we have to make ths addition 
- 
- itnegrate the app with streamlit 
+ integrate  the app with streamlit 
 '''
 
 from dotenv import load_dotenv
 import json 
 from openai import OpenAI
-from connect_to_db import get_schema
+from connect_to_db import get_schema , get_table
+from tools import get_stock_details
 
 load_dotenv()
-
-
-def get_stock_info(stock_code:str) -> str: 
-    d = {"TCS" : 1990, "INFY":200}
-
-    return str(d.get(stock_code,""))
 
 my_tools  =[
 {
     "type": "function",
-    "name":"get_stock_info",
+    "name":"get_stock_details",
     "description" :"it return the details associated with the provided stock code",
     "parameters" :    {
         "type":"object",
@@ -35,9 +29,8 @@ my_tools  =[
             "stock_code" :
                         {
                             "type":"string" , 
-                            "description" : "a unique code which tell stock information for a particular stock price"
+                            "description" : "a NSE  unique code which tell stock information for a particular stock price"
                         }
-
         },
         "required" :["stock_code"]
 
@@ -59,16 +52,39 @@ my_tools  =[
             "required":["table_name"]
                 }  
 }
-
 ]
+
 client = OpenAI()
 
-user_input ="give me stock related information for TCS  stock code"
-response = client.responses.create(model="gpt-5.0-luna", input = user_input , tools = my_tools)
+user_input ="Give me stock related information for TCS  stock code  find out which specific tools needs to be called and then based on that give the output."
 
+response = client.responses.create(model="gpt-5.6-luna", input = user_input , tools = my_tools)
 
 llm_output=response.output 
-print(llm_output)
+
+tool_mapping = {"get_stock_details":get_stock_details}
+
+tools_output=[]
+
+response_id = response.id 
+
+for item in llm_output:
+    if  item.type =="function_call":
+        f_name  =item.name
+        call_id = item.call_id
+        args = json.loads(item.arguments)
+        f_output = tool_mapping.get(f_name)(**args)
+        
+        tools_output.append({
+            "type":"function_call_output"
+            ,"output": f_output
+            ,"call_id" : call_id
+        })
+
+    response = client.responses.create(model="gpt-5.6-luna", input = tools_output, previous_response_id = response_id)
+
+
+
 print("======================================================================")
 
 print(response.output_text)
