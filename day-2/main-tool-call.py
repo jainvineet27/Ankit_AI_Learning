@@ -1,20 +1,10 @@
-'''
-okay so what odi havr to achivie in this project
- defien dthe user deifned function 
- my tools  whichis oging to act as the tool for thellm 
- thik hai first ftool  
- is getschema iwhich hawe have  and get or detect table name  tools 
- we would be making this two tools and supply to the open ai tool paramters
- 
- prompt seciton we have to make ths addition 
- integrate  the app with streamlit 
-'''
-
 from dotenv import load_dotenv
 import json 
-from openai import OpenAI
 from connect_to_db import get_schema , get_table
 from tools import get_stock_details
+
+from openai import OpenAI 
+
 
 load_dotenv()
 
@@ -38,8 +28,8 @@ my_tools  =[
 }
 
 ,{
-    "name":"get_schema",
     "type":"function",
+    "name":"get_schema",    
     "description":"get the name of the schema of the table",
     "parameters" :{
             "type":"object",
@@ -55,41 +45,43 @@ my_tools  =[
 ]
 
 client = OpenAI()
-
 user_input ="Give me stock related information for TCS  stock code  find out which specific tools needs to be called and then based on that give the output."
 
 response = client.responses.create(model="gpt-5.6-luna", input = user_input , tools = my_tools)
 
 llm_output=response.output 
-
-tool_mapping = {"get_stock_details":get_stock_details}
-
-tools_output=[]
+tool_mapping = {"get_stock_details":get_stock_details, "get_schema":get_schema}
 
 response_id = response.id 
-
-for item in llm_output:
-    if  item.type =="function_call":
-        f_name  =item.name
-        call_id = item.call_id
-        args = json.loads(item.arguments)
-        f_output = tool_mapping.get(f_name)(**args)
-        
-        tools_output.append({
-            "type":"function_call_output"
-            ,"output": f_output
-            ,"call_id" : call_id
-        })
-
-    response = client.responses.create(model="gpt-5.6-luna", input = tools_output, previous_response_id = response_id)
-
-
-
 print("======================================================================")
+
+
+## it will be having some parts where it mght be making calls to the functions 
+while True:
+    tools_output=[]    
+    for item in llm_output:        
+        if  item.type =="function_call":
+            f_name  =item.name
+            call_id = item.call_id
+            args = json.loads(item.arguments)
+            f_output = str(tool_mapping.get(f_name)(**args))
+            print("f_output >>>>>>>>>>>>>>>>>>" , f_output)
+            
+            tools_output.append({
+                "type":"function_call_output"
+                ,"output": f_output
+                ,"call_id" : call_id
+            })
+
+            print(json.dumps(tools_output,indent=4))
+           
+
+    if not tools_output:
+        break
+    response = client.responses.create(model="gpt-5.6-luna", input = tools_output, previous_response_id = response_id)    
+    response_id = response.id
+    llm_output= response.output
 
 print(response.output_text)
 
-## it will be having some parts where it mght be making calls to the functions 
-tools_output=[]
-while True:
-    pass
+
