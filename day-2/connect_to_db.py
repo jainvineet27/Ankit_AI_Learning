@@ -9,6 +9,7 @@ engine = create_engine(
     "postgresql+psycopg://postgres:postgres@localhost:5432/postgres"
 )
 
+
 def execute_query(query):
     with engine.connect() as conn:
         df = pd.read_sql(query, conn)
@@ -30,7 +31,7 @@ def get_schema(table_name):
     return schema
 
 
-result = execute_query("select * from orders limit 5")
-print(result)
-result = get_schema('orders')
-print(result)
+# result = execute_query("select * from orders limit 5")
+# print(result)
+# result = get_schema('orders')
+# print(result)
