@@ -17,7 +17,7 @@ def execute_query(query):
     return df
 
 
-def get_schema(table_name):
+def get_schema(table_name :str):
     query = f'''
             SELECT
     table_name ,       
@@ -31,7 +31,7 @@ def get_schema(table_name):
     return schema
 
 
-def get_table(table_name):
+def get_table(table_name :str):
     query = f'''
             SELECT
     table_name ,  table_schema    

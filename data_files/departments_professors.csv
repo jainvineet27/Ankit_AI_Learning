@@ -1,0 +1,101 @@
+professor_id,department_id,first_name,last_name,email,academic_rank,hire_date
+1,64,Daniel,Davis,daniel.davis1@university.edu,Associate Professor,2020-07-06
+2,41,Jessica,Rodriguez,jessica.rodriguez2@university.edu,Lecturer,2010-02-06
+3,47,William,Brown,william.brown3@university.edu,Associate Professor,2018-07-16
+4,16,Robert,Brown,robert.brown4@university.edu,Lecturer,2013-01-27
+5,65,William,Lopez,william.lopez5@university.edu,Adjunct Professor,2019-05-29
+6,94,Betty,Davis,betty.davis6@university.edu,Associate Professor,2012-09-25
+7,98,Joseph,Taylor,joseph.taylor7@university.edu,Associate Professor,2017-04-26
+8,17,David,Miller,david.miller8@university.edu,Associate Professor,2021-06-05
+9,52,Christopher,Taylor,christopher.taylor9@university.edu,Adjunct Professor,2022-04-21
+10,78,Matthew,Smith,matthew.smith10@university.edu,Associate Professor,2011-01-10
+11,76,Linda,Davis,linda.davis11@university.edu,Full Professor,2015-05-28
+12,52,Susan,Wilson,susan.wilson12@university.edu,Lecturer,2019-12-23
+13,63,Robert,Smith,robert.smith13@university.edu,Lecturer,2018-05-24
+14,95,Matthew,Miller,matthew.miller14@university.edu,Adjunct Professor,2014-02-07
+15,18,William,Martin,william.martin15@university.edu,Full Professor,2010-09-22
+16,60,Linda,Brown,linda.brown16@university.edu,Associate Professor,2013-07-12
+17,65,Nancy,Martin,nancy.martin17@university.edu,Full Professor,2012-05-25
+18,37,William,Hernandez,william.hernandez18@university.edu,Lecturer,2015-11-15
+19,17,Sarah,Hernandez,sarah.hernandez19@university.edu,Assistant Professor,2013-05-16
+20,45,Elizabeth,Williams,elizabeth.williams20@university.edu,Adjunct Professor,2016-08-31
+21,81,Lisa,Williams,lisa.williams21@university.edu,Associate Professor,2020-05-01
+22,20,Michael,Miller,michael.miller22@university.edu,Assistant Professor,2012-07-04
+23,92,Jessica,Moore,jessica.moore23@university.edu,Assistant Professor,2016-05-14
+24,79,Jessica,Johnson,jessica.johnson24@university.edu,Full Professor,2023-08-14
+25,35,Charles,Thomas,charles.thomas25@university.edu,Assistant Professor,2018-02-20
+26,82,Richard,Lopez,richard.lopez26@university.edu,Full Professor,2022-03-04
+27,20,Charles,Wilson,charles.wilson27@university.edu,Full Professor,2015-01-08
+28,17,Mark,Wilson,mark.wilson28@university.edu,Associate Professor,2021-11-08
+29,11,Robert,Martin,robert.martin29@university.edu,Assistant Professor,2013-07-25
+30,6,Matthew,Johnson,matthew.johnson30@university.edu,Adjunct Professor,2023-08-07
+31,57,Matthew,Davis,matthew.davis31@university.edu,Adjunct Professor,2012-05-21
+32,42,Thomas,Smith,thomas.smith32@university.edu,Assistant Professor,2017-05-25
+33,44,Sarah,Davis,sarah.davis33@university.edu,Lecturer,2013-04-08
+34,79,Patricia,Johnson,patricia.johnson34@university.edu,Assistant Professor,2021-02-06
+35,8,Anthony,Brown,anthony.brown35@university.edu,Associate Professor,2018-01-14
+36,74,Jessica,Johnson,jessica.johnson36@university.edu,Adjunct Professor,2016-01-06
+37,3,Richard,Smith,richard.smith37@university.edu,Associate Professor,2014-08-05
+38,86,Robert,Moore,robert.moore38@university.edu,Full Professor,2011-03-05
+39,39,Barbara,Martinez,barbara.martinez39@university.edu,Adjunct Professor,2023-02-25
+40,4,Sarah,Brown,sarah.brown40@university.edu,Assistant Professor,2012-06-30
+41,20,Sandra,Martin,sandra.martin41@university.edu,Adjunct Professor,2019-06-21
+42,93,Christopher,Jones,christopher.jones42@university.edu,Lecturer,2015-12-14
+43,62,Joseph,Martin,joseph.martin43@university.edu,Adjunct Professor,2021-06-08
+44,97,Betty,Rodriguez,betty.rodriguez44@university.edu,Associate Professor,2020-12-09
+45,34,Margaret,Davis,margaret.davis45@university.edu,Associate Professor,2017-05-15
+46,32,Daniel,Miller,daniel.miller46@university.edu,Adjunct Professor,2013-08-12
+47,57,Mary,Lopez,mary.lopez47@university.edu,Adjunct Professor,2020-03-20
+48,33,Susan,Wilson,susan.wilson48@university.edu,Full Professor,2015-04-10
+49,99,James,Jackson,james.jackson49@university.edu,Adjunct Professor,2018-02-19
+50,21,Thomas,Hernandez,thomas.hernandez50@university.edu,Assistant Professor,2010-09-29
+51,78,John,Johnson,john.johnson51@university.edu,Lecturer,2021-11-13
+52,46,Mary,Taylor,mary.taylor52@university.edu,Assistant Professor,2023-03-08
+53,47,Richard,Anderson,richard.anderson53@university.edu,Associate Professor,2011-07-11
+54,61,Jessica,Taylor,jessica.taylor54@university.edu,Full Professor,2022-11-01
+55,39,Richard,Rodriguez,richard.rodriguez55@university.edu,Full Professor,2023-09-02
+56,65,Susan,Brown,susan.brown56@university.edu,Associate Professor,2015-10-06
+57,30,Patricia,Rodriguez,patricia.rodriguez57@university.edu,Lecturer,2011-03-18
+58,33,Daniel,Jones,daniel.jones58@university.edu,Full Professor,2010-08-24
+59,17,Karen,Davis,karen.davis59@university.edu,Adjunct Professor,2013-02-09
+60,2,David,Taylor,david.taylor60@university.edu,Assistant Professor,2014-04-12
+61,30,James,Lopez,james.lopez61@university.edu,Full Professor,2015-11-15
+62,40,David,Hernandez,david.hernandez62@university.edu,Full Professor,2011-07-23
+63,91,Robert,Taylor,robert.taylor63@university.edu,Lecturer,2016-10-24
+64,98,Michael,Davis,michael.davis64@university.edu,Full Professor,2016-06-20
+65,70,Robert,Gonzalez,robert.gonzalez65@university.edu,Lecturer,2021-11-05
+66,98,Karen,Martin,karen.martin66@university.edu,Full Professor,2011-05-17
+67,88,Anthony,Martin,anthony.martin67@university.edu,Full Professor,2021-09-10
+68,28,Anthony,Hernandez,anthony.hernandez68@university.edu,Lecturer,2021-02-25
+69,89,Susan,Davis,susan.davis69@university.edu,Adjunct Professor,2023-03-03
+70,42,David,Brown,david.brown70@university.edu,Associate Professor,2020-12-25
+71,2,Sandra,Jones,sandra.jones71@university.edu,Assistant Professor,2016-07-16
+72,32,Barbara,Taylor,barbara.taylor72@university.edu,Assistant Professor,2012-05-23
+73,15,Betty,Taylor,betty.taylor73@university.edu,Associate Professor,2010-10-25
+74,11,Mark,Hernandez,mark.hernandez74@university.edu,Adjunct Professor,2021-04-15
+75,62,Elizabeth,Wilson,elizabeth.wilson75@university.edu,Adjunct Professor,2018-06-16
+76,32,Patricia,Thomas,patricia.thomas76@university.edu,Lecturer,2015-04-20
+77,91,Sarah,Lopez,sarah.lopez77@university.edu,Full Professor,2011-12-07
+78,47,Betty,Rodriguez,betty.rodriguez78@university.edu,Adjunct Professor,2013-03-18
+79,27,Lisa,Gonzalez,lisa.gonzalez79@university.edu,Assistant Professor,2019-09-26
+80,89,Jessica,Martinez,jessica.martinez80@university.edu,Full Professor,2020-01-06
+81,5,John,Johnson,john.johnson81@university.edu,Full Professor,2014-05-09
+82,10,Patricia,Martinez,patricia.martinez82@university.edu,Associate Professor,2010-09-12
+83,77,Patricia,Taylor,patricia.taylor83@university.edu,Full Professor,2022-08-11
+84,64,Sandra,Gonzalez,sandra.gonzalez84@university.edu,Lecturer,2018-03-17
+85,74,Lisa,Garcia,lisa.garcia85@university.edu,Lecturer,2015-05-19
+86,22,Mark,Smith,mark.smith86@university.edu,Full Professor,2010-08-14
+87,17,Sarah,Davis,sarah.davis87@university.edu,Full Professor,2012-03-14
+88,89,Sandra,Anderson,sandra.anderson88@university.edu,Assistant Professor,2017-02-02
+89,7,Barbara,Jones,barbara.jones89@university.edu,Adjunct Professor,2022-01-16
+90,64,Mary,Moore,mary.moore90@university.edu,Full Professor,2017-06-23
+91,24,Jessica,Rodriguez,jessica.rodriguez91@university.edu,Associate Professor,2013-10-08
+92,72,Jennifer,Jackson,jennifer.jackson92@university.edu,Lecturer,2011-06-09
+93,16,David,Jones,david.jones93@university.edu,Full Professor,2015-05-27
+94,71,David,Brown,david.brown94@university.edu,Lecturer,2013-06-27
+95,4,William,Miller,william.miller95@university.edu,Associate Professor,2019-11-13
+96,14,Daniel,Miller,daniel.miller96@university.edu,Full Professor,2013-06-03
+97,18,Margaret,Martinez,margaret.martinez97@university.edu,Associate Professor,2021-10-23
+98,45,Patricia,Lopez,patricia.lopez98@university.edu,Lecturer,2021-03-02
+99,84,Linda,Anderson,linda.anderson99@university.edu,Lecturer,2015-10-03
+100,59,Mark,Lopez,mark.lopez100@university.edu,Full Professor,2014-07-16

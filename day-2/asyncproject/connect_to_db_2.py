@@ -17,33 +17,33 @@ def execute_query(query):
     return df
 
 
-def get_schema(table_name):
+async def get_schema(schema_name:str, table_name:str):
     query = f'''
             SELECT
     table_name ,       
     column_name,
     data_type
     FROM information_schema.columns
-    where table_schema= 'public' and table_name = '{table_name}'
+    where table_schema= '{schema_name}' and table_name = '{table_name}'
     ORDER BY ordinal_position;
         '''
     schema = execute_query(query)
     return schema
 
 
-def get_table(table_name):
+async def get_table(schema_name:str,table_name :str):
     query = f'''
             SELECT
     table_name ,  table_schema    
     FROM information_schema.columns
-    where table_schema= 'public' and table_name = '{table_name}'
+    where table_schema= '{schema_name}' and table_name = '{table_name}'
     ORDER BY ordinal_position;
         '''
-    tables  = execute_query(query)
+    tables  =  execute_query(query)
     return tables
 
 
 #result = execute_query("select * from orders limit 5")
 # print(result)
-result = get_table('orders')
+#result = get_table('orders')
 # print(result)

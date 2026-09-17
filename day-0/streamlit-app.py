@@ -43,7 +43,7 @@ try:
     schema = load_schema("orders")
 except Exception as error:
     st.error(
-        "Could not connect to PostgreSQL. Check that the database is running and configured.")
+        "Could not connect to PostgreSQL.Check that the database is running and configured.")
     st.exception(error)
     st.stop()
 

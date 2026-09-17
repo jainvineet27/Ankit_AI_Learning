@@ -1,6 +1,7 @@
 ''' this is important module where we have mentioend lit oflla the functionalities'''
 from bharatstock import BharatStock
 from dotenv import load_dotenv
+import json 
 
 load_dotenv()
 
@@ -14,7 +15,9 @@ def get_stock_details(stock_code:str) -> str:
     client = BharatStock()
     response = client.stocks.get(stock_code)
 
-    return response.latest_price , response.company_name
+    return  {  "latest_price" : response.industry , "company_name":response.company_name}
+    
+
 
 
 

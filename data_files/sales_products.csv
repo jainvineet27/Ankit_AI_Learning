@@ -1,0 +1,101 @@
+product_id,product_name,category,unit_price,stock_quantity
+1,Prime Desk v5,Furniture,392.55,28
+2,Prime Headset v8,Accessories,410.13,254
+3,Pro Monitor v7,Furniture,51.72,460
+4,Prime Chair v7,Office Supplies,940.8,166
+5,Ultra Keyboard v8,Accessories,523.15,298
+6,Pro Headset v8,Accessories,543.89,180
+7,Compact Webcam v1,Software,713.08,271
+8,Wireless Monitor v4,Furniture,604.59,358
+9,Wireless Headset v3,Accessories,711.47,95
+10,Ergonomic Docking Station v6,Accessories,648.8,225
+11,Smart Chair v4,Electronics,377.28,64
+12,Eco Laptop v8,Electronics,94.8,122
+13,Eco Chair v1,Office Supplies,142.62,110
+14,Wireless Chair v7,Accessories,197.97,160
+15,Ergonomic Mouse v6,Office Supplies,249.97,439
+16,Ultra Keyboard v2,Furniture,947.65,327
+17,Compact Monitor v7,Accessories,499.05,28
+18,Smart Headset v8,Electronics,729.42,383
+19,Pro Docking Station v6,Electronics,469.72,430
+20,Prime Headset v5,Software,709,485
+21,Wireless Desk v8,Furniture,53.84,285
+22,Pro Laptop v3,Office Supplies,161.93,488
+23,Prime Desk v2,Furniture,333.89,351
+24,Pro Mouse v5,Accessories,180.07,58
+25,Compact Router v6,Furniture,737.88,171
+26,Compact Monitor v1,Office Supplies,626.1,6
+27,Compact Laptop v6,Accessories,436.11,333
+28,Eco Desk v8,Furniture,985.22,373
+29,Ultra Laptop v6,Software,658.56,183
+30,Pro Docking Station v3,Furniture,345.07,279
+31,Eco Laptop v8,Electronics,405.79,417
+32,Pro Router v4,Accessories,484.07,397
+33,Prime Mouse v6,Office Supplies,371.92,426
+34,Eco Router v5,Office Supplies,200.57,308
+35,Compact Monitor v4,Accessories,605.79,412
+36,Smart Chair v7,Furniture,770.58,350
+37,Ultra Headset v6,Office Supplies,107.92,438
+38,Eco Router v3,Furniture,359.98,114
+39,Smart Desk v5,Furniture,720.61,464
+40,Pro Desk v3,Office Supplies,605.9,304
+41,Compact Laptop v2,Software,277.57,24
+42,Prime Headset v3,Electronics,84.46,246
+43,Wireless Mouse v1,Furniture,469.17,40
+44,Ultra Webcam v4,Office Supplies,405.23,31
+45,Compact Webcam v6,Furniture,741.73,348
+46,Ergonomic Headset v6,Accessories,318.75,129
+47,Compact Keyboard v1,Software,330.06,205
+48,Wireless Keyboard v2,Software,521.23,201
+49,Pro Docking Station v9,Accessories,298.21,101
+50,Eco Monitor v8,Office Supplies,187.45,22
+51,Eco Monitor v4,Software,196.37,294
+52,Prime Desk v8,Furniture,639.72,309
+53,Wireless Router v9,Software,862.9,357
+54,Pro Mouse v7,Accessories,304.89,408
+55,Smart Headset v1,Accessories,511.11,489
+56,Pro Monitor v9,Electronics,964.05,373
+57,Pro Router v9,Office Supplies,662.75,456
+58,Compact Webcam v2,Furniture,681.62,476
+59,Ultra Headset v9,Office Supplies,231.9,122
+60,Eco Laptop v8,Accessories,920.73,437
+61,Compact Desk v9,Software,359.92,208
+62,Ultra Desk v8,Electronics,303.44,285
+63,Smart Desk v2,Accessories,894.95,426
+64,Smart Headset v3,Software,372.54,121
+65,Prime Mouse v2,Software,541.58,86
+66,Pro Chair v3,Electronics,870.43,304
+67,Pro Chair v7,Software,869.95,329
+68,Pro Docking Station v3,Office Supplies,453.87,263
+69,Compact Laptop v7,Software,962.88,148
+70,Pro Monitor v5,Furniture,723.61,465
+71,Wireless Mouse v8,Accessories,131.52,268
+72,Smart Monitor v9,Furniture,282.34,210
+73,Ultra Router v6,Furniture,511.84,438
+74,Ergonomic Keyboard v4,Accessories,385.4,65
+75,Compact Chair v7,Accessories,688.73,69
+76,Pro Mouse v5,Accessories,724.53,48
+77,Pro Laptop v1,Furniture,91.84,225
+78,Eco Headset v6,Electronics,773.1,454
+79,Pro Router v8,Furniture,653.5,287
+80,Prime Router v4,Software,895.4,157
+81,Ergonomic Mouse v3,Furniture,933.15,110
+82,Compact Router v9,Furniture,629.54,175
+83,Compact Chair v8,Accessories,807.25,187
+84,Wireless Monitor v7,Software,116.19,270
+85,Wireless Monitor v6,Accessories,706.72,365
+86,Ultra Mouse v8,Office Supplies,134.89,483
+87,Ergonomic Desk v6,Furniture,24.88,443
+88,Compact Monitor v2,Accessories,114.73,147
+89,Smart Chair v6,Furniture,738.8,392
+90,Ergonomic Router v7,Furniture,104.84,119
+91,Pro Router v4,Furniture,682.01,53
+92,Ergonomic Desk v7,Furniture,944.18,459
+93,Compact Router v8,Software,724.44,114
+94,Ergonomic Chair v6,Accessories,953.01,278
+95,Ergonomic Desk v5,Office Supplies,889.13,299
+96,Pro Headset v8,Furniture,435.14,19
+97,Pro Desk v4,Accessories,453.79,200
+98,Smart Monitor v2,Software,719.95,234
+99,Ultra Desk v8,Accessories,641.25,227
+100,Ergonomic Keyboard v7,Electronics,900.27,139

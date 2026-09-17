@@ -10,3 +10,8 @@ async def get_stock_details(stock_code:str):
 
     return  {  "latest_price" : response.industry , "company_name":response.company_name  }
 
+
+
+async def get_schema():
+    
+    pass 

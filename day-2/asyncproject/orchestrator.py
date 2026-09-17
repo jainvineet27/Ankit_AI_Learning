@@ -1,8 +1,9 @@
 import asyncio
 import json 
 from tools_2 import get_stock_details 
+from connect_to_db_2 import get_schema , get_table
 
-tool_mapping = {"get_stock_details":get_stock_details }
+tool_mapping = {"get_stock_details":get_stock_details , "get_table" :get_table , "get_schema" :get_schema }
 
 async def execute_item(item) -> dict:
     f_name=  item.name
@@ -18,12 +19,12 @@ async def execute_item(item) -> dict:
         }
 
     f_output = await tool_mapping.get(f_name)(**args)
+
     return {
         "type": "function_call_output", 
         "call_id": call_id,
-        "output": json.dumps(f_output)
+        "output": str(f_output)
     }
-
 
 async def concurrent_runs(functions_call) -> list: 
 

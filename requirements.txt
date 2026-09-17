@@ -8,3 +8,4 @@ ipykernel
 psycopg
 sqlalchemy
 psycopg[binary]
+bharatstock

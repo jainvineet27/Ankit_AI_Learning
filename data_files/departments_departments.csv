@@ -1,0 +1,101 @@
+department_id,department_name,faculty,annual_budget,building
+1,Computer Science,STEM,4377718,Building-B
+2,Electrical Engineering,STEM,1502557,Building-C
+3,Mechanical Engineering,STEM,3946095,Building-D
+4,Civil Engineering,STEM,4585524,Building-E
+5,Mathematics,STEM,1649064,Building-F
+6,Physics,STEM,4530790,Building-G
+7,Chemistry,STEM,790454,Building-H
+8,Biology,STEM,1635070,Building-A
+9,Economics,Humanities & Social Sciences,824882,Building-B
+10,Business Administration,Humanities & Social Sciences,3722604,Building-C
+11,Psychology,Humanities & Social Sciences,2722615,Building-D
+12,Sociology,Humanities & Social Sciences,858514,Building-E
+13,History,Humanities & Social Sciences,453982,Building-F
+14,Philosophy,Humanities & Social Sciences,3855715,Building-G
+15,Linguistics,Humanities & Social Sciences,3208459,Building-H
+16,Political Science,Humanities & Social Sciences,2771793,Building-A
+17,Computer Science Department 2,STEM,1758971,Building-B
+18,Electrical Engineering Department 2,STEM,4423704,Building-C
+19,Mechanical Engineering Department 2,STEM,415833,Building-D
+20,Civil Engineering Department 2,STEM,4538243,Building-E
+21,Mathematics Department 2,STEM,2647993,Building-F
+22,Physics Department 2,STEM,947433,Building-G
+23,Chemistry Department 2,STEM,3375290,Building-H
+24,Biology Department 2,STEM,4087802,Building-A
+25,Economics Department 2,Humanities & Social Sciences,3413454,Building-B
+26,Business Administration Department 2,Humanities & Social Sciences,4755473,Building-C
+27,Psychology Department 2,Humanities & Social Sciences,4965060,Building-D
+28,Sociology Department 2,Humanities & Social Sciences,4643021,Building-E
+29,History Department 2,Humanities & Social Sciences,2033600,Building-F
+30,Philosophy Department 2,Humanities & Social Sciences,1110239,Building-G
+31,Linguistics Department 2,Humanities & Social Sciences,4726431,Building-H
+32,Political Science Department 2,Humanities & Social Sciences,2170930,Building-A
+33,Computer Science Department 3,STEM,4927303,Building-B
+34,Electrical Engineering Department 3,STEM,4197065,Building-C
+35,Mechanical Engineering Department 3,STEM,4276793,Building-D
+36,Civil Engineering Department 3,STEM,4420680,Building-E
+37,Mathematics Department 3,STEM,3716929,Building-F
+38,Physics Department 3,STEM,3920796,Building-G
+39,Chemistry Department 3,STEM,288811,Building-H
+40,Biology Department 3,STEM,2209989,Building-A
+41,Economics Department 3,Humanities & Social Sciences,2526885,Building-B
+42,Business Administration Department 3,Humanities & Social Sciences,836382,Building-C
+43,Psychology Department 3,Humanities & Social Sciences,4275518,Building-D
+44,Sociology Department 3,Humanities & Social Sciences,1145293,Building-E
+45,History Department 3,Humanities & Social Sciences,1727271,Building-F
+46,Philosophy Department 3,Humanities & Social Sciences,3620109,Building-G
+47,Linguistics Department 3,Humanities & Social Sciences,2942493,Building-H
+48,Political Science Department 3,Humanities & Social Sciences,513865,Building-A
+49,Computer Science Department 4,STEM,3992092,Building-B
+50,Electrical Engineering Department 4,STEM,1449769,Building-C
+51,Mechanical Engineering Department 4,STEM,3871903,Building-D
+52,Civil Engineering Department 4,STEM,2150845,Building-E
+53,Mathematics Department 4,STEM,3556029,Building-F
+54,Physics Department 4,STEM,3093342,Building-G
+55,Chemistry Department 4,STEM,849227,Building-H
+56,Biology Department 4,STEM,4879920,Building-A
+57,Economics Department 4,Humanities & Social Sciences,3397718,Building-B
+58,Business Administration Department 4,Humanities & Social Sciences,1916848,Building-C
+59,Psychology Department 4,Humanities & Social Sciences,2714810,Building-D
+60,Sociology Department 4,Humanities & Social Sciences,2726478,Building-E
+61,History Department 4,Humanities & Social Sciences,4391381,Building-F
+62,Philosophy Department 4,Humanities & Social Sciences,432175,Building-G
+63,Linguistics Department 4,Humanities & Social Sciences,2105195,Building-H
+64,Political Science Department 4,Humanities & Social Sciences,4411909,Building-A
+65,Computer Science Department 5,STEM,749056,Building-B
+66,Electrical Engineering Department 5,STEM,3855150,Building-C
+67,Mechanical Engineering Department 5,STEM,1575486,Building-D
+68,Civil Engineering Department 5,STEM,3187501,Building-E
+69,Mathematics Department 5,STEM,1860136,Building-F
+70,Physics Department 5,STEM,3636791,Building-G
+71,Chemistry Department 5,STEM,515041,Building-H
+72,Biology Department 5,STEM,1424007,Building-A
+73,Economics Department 5,Humanities & Social Sciences,3490462,Building-B
+74,Business Administration Department 5,Humanities & Social Sciences,2753908,Building-C
+75,Psychology Department 5,Humanities & Social Sciences,947841,Building-D
+76,Sociology Department 5,Humanities & Social Sciences,1264299,Building-E
+77,History Department 5,Humanities & Social Sciences,4875190,Building-F
+78,Philosophy Department 5,Humanities & Social Sciences,1723966,Building-G
+79,Linguistics Department 5,Humanities & Social Sciences,4318054,Building-H
+80,Political Science Department 5,Humanities & Social Sciences,1350014,Building-A
+81,Computer Science Department 6,STEM,968759,Building-B
+82,Electrical Engineering Department 6,STEM,4053475,Building-C
+83,Mechanical Engineering Department 6,STEM,579270,Building-D
+84,Civil Engineering Department 6,STEM,4798598,Building-E
+85,Mathematics Department 6,STEM,565195,Building-F
+86,Physics Department 6,STEM,2626815,Building-G
+87,Chemistry Department 6,STEM,4153563,Building-H
+88,Biology Department 6,STEM,1146362,Building-A
+89,Economics Department 6,Humanities & Social Sciences,4698586,Building-B
+90,Business Administration Department 6,Humanities & Social Sciences,338589,Building-C
+91,Psychology Department 6,Humanities & Social Sciences,3035996,Building-D
+92,Sociology Department 6,Humanities & Social Sciences,3719522,Building-E
+93,History Department 6,Humanities & Social Sciences,1619479,Building-F
+94,Philosophy Department 6,Humanities & Social Sciences,2688812,Building-G
+95,Linguistics Department 6,Humanities & Social Sciences,3688716,Building-H
+96,Political Science Department 6,Humanities & Social Sciences,2066571,Building-A
+97,Computer Science Department 7,STEM,1444298,Building-B
+98,Electrical Engineering Department 7,STEM,1198291,Building-C
+99,Mechanical Engineering Department 7,STEM,4330735,Building-D
+100,Civil Engineering Department 7,STEM,1221439,Building-E
