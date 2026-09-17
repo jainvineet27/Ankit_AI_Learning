@@ -4,6 +4,7 @@ import json
 import asyncio
 from orchestrator import concurrent_runs
 from my_system_prompt import system_prompt
+from connect_to_db_2 import execute_query
 
 load_dotenv()
 client = AsyncOpenAI()
@@ -66,7 +67,7 @@ my_tools = [
 
 async def main():
     #"can you please provide information on the today stock of reliance , tcs , infy stock_codes"
-    user_input ="Help me to identify Total Revenue & Net Sales for the database."
+    user_input ="Help me to top 10 Total amount or revenue  from the sales database and tables orders "
     final_prompt  =f" {system_prompt} and here is the user questions :{user_input}"
 
     response = await  client.responses.create(model="gpt-5.6-luna", input = final_prompt , tools = my_tools)
@@ -81,11 +82,14 @@ async def main():
             
             tools_output= await concurrent_runs(functions_calls)
             print("tools output >>>>>>>>>>>>>>", tools_output)
-            
+
             response = await client.responses.create(model="gpt-5.6-luna", input = tools_output, previous_response_id=response_id)
             response_id = response.id
 
     print("\n--- Final Response ---")
+    
+    output =execute_query(response.output_text.strip() )
+    print("Running the sql query >>>>>>>>> ")
     print(response.output_text)
 
 

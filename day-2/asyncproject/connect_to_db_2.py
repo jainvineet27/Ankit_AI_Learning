@@ -18,6 +18,11 @@ def execute_query(query):
 
 
 async def get_schema(schema_name:str, table_name:str):
+    '''
+    Use this function to extract the column names and their data types for a supplied table 
+    args :  schema name and  table name 
+    output : it returns the entire  schema of the table corresponding to the name of table , column names and data types.
+    '''
     query = f'''
             SELECT
     table_name ,       
@@ -32,6 +37,11 @@ async def get_schema(schema_name:str, table_name:str):
 
 
 async def get_table(schema_name:str,table_name :str):
+    '''
+    Use this function or method in order to identify whether the tables has been present into the database or not 
+    If yes then using these tables call another function to identify the corresponding schema of that table 
+    args  schema name and the table name 
+    '''
     query = f'''
             SELECT
     table_name ,  table_schema    
