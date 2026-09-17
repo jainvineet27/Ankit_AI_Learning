@@ -67,7 +67,8 @@ my_tools = [
 
 async def main():
     #"can you please provide information on the today stock of reliance , tcs , infy stock_codes"
-    user_input ="Help me to top 10 Total amount or revenue  from the sales database and tables orders "
+    #Help me to top 10 Total amount or revenue  from the sales database and tables orders 
+    user_input ="can you please provide information on the today stock of reliance , tcs , infy stock_codes"
     final_prompt  =f" {system_prompt} and here is the user questions :{user_input}"
 
     response = await  client.responses.create(model="gpt-5.6-luna", input = final_prompt , tools = my_tools)
@@ -76,6 +77,9 @@ async def main():
     while True:
             functions_calls = [item for item in response.output if item.type=="function_call"]
             print("funcation calls >>>>>>>>>>>>>>>>>",  functions_calls)
+            for item in functions_calls:
+                print(item.name ,">>>>>>>>>>>>>>>> ",  json.dumps(item.arguments))
+
 
             if not functions_calls:
                  break 
