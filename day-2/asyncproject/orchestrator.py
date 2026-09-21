@@ -9,8 +9,9 @@ async def execute_item(item) -> dict:
     f_name=  item.name
     call_id = item.call_id
     args = json.loads(item.arguments)
-
-    if not tool_mapping.get(f_name):
+    
+    tool = tool_mapping.get(f_name)
+    if tool is None:
 
         return {
             "type": "function_call_output",
@@ -18,7 +19,7 @@ async def execute_item(item) -> dict:
             "output": json.dumps({"error": f"Tool '{f_name}' not found."})
         }
 
-    f_output = await tool_mapping.get(f_name)(**args)
+    f_output = await tool(**args)
 
     return {
         "type": "function_call_output", 
