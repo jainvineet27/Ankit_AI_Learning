@@ -67,16 +67,20 @@ my_tools = [
 
 async def main():
     #"can you please provide information on the today stock of reliance , tcs , infy stock_codes"
-    #Help me to top 10 Total amount or revenue  from the sales database and tables orders 
-    user_input ="can you please provide information on the today stock of reliance , tcs , infy stock_codes"
+    user_input="tell me about top 10 departments present under department shema "
+    #user_input =
     final_prompt  =f" {system_prompt} and here is the user questions :{user_input}"
 
     response = await  client.responses.create(model="gpt-5.6-luna", input = final_prompt , tools = my_tools)
-    print("first response ...",  response.output)
+    print("first response ...",  response.output[:200])
     response_id = response.id
-    while True:
+    max_turns = 5 
+    turn=1
+    while turn<=max_turns:
+            turn+=1
             functions_calls = [item for item in response.output if item.type=="function_call"]
-            print("funcation calls >>>>>>>>>>>>>>>>>",  functions_calls)
+            print("Total funcation calls >>>>>>>>>>>>>>>>>",  len(functions_calls))
+
             for item in functions_calls:
                 print(item.name ,">>>>>>>>>>>>>>>> ",  json.dumps(item.arguments))
 
