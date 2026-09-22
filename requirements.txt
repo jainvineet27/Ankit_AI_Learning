@@ -12,3 +12,5 @@ bharatstock
 requests
 langchain-community
 chromadb
+pypdf
+pymupdf

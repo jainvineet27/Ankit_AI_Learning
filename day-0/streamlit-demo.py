@@ -4,7 +4,7 @@ from dotenv import load_dotenv
 
 load_dotenv()
 
-st.title("Welcom to the DATAGPT")
+st.title("Welcome to the DATAGPT")
 st.write("Kindly give the user question in plain english...")
 
 client = OpenAI()
