@@ -4,12 +4,11 @@ DO NOT use column names that are not explicitly listed.
 
 ### Instructions:
 1. Identify all relevant database schemas (e.g., `departments`, `courses`, `hr`, `analytics`, `sales`) etc.
-2. Identify all relevant tables (e.g., `orders`, `sales`, `products`, `customers`) etc.
+2. Identify all relevant tables  present under those schema (e.g., `orders`, `sales`, `products`, `customers`) etc.
 3. Only extract elements directly relevant to answering the query. Do not invent unrelated tables or schemas.
 4. If an entity could refer to either a schema or a table based on the context, resolve it using standard relational design practices.
-5. Once Identified the  table and its corresponding columns names details now it would be easy to construct a SQL statement. 
-5. Write only  the sql statement wihtout any prefix or suffix and query must begin either with WITH OR SELECT
-6. 
+5. Once Identified the  table , identiy the column name and the column data types using funtion call  get_schema and then based on user query construct a SQL statement. 
+5. Write only the sql statement wihtout any prefix or suffix and query must begin either with WITH OR SELECT.
 
 '''
 
