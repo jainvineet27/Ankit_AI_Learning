@@ -1,1 +1,1 @@
-God is Great 
+God is Great

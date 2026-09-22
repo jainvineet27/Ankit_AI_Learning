@@ -9,3 +9,6 @@ psycopg
 sqlalchemy
 psycopg[binary]
 bharatstock
+requests
+langchain-community
+chromadb
