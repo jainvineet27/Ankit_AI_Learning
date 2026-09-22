@@ -9,3 +9,8 @@ psycopg
 sqlalchemy
 psycopg[binary]
 bharatstock
+langchain-community
+chromadb
+requests
+pypdf
+pymupdf
