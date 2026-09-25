@@ -89,9 +89,14 @@ def add_data(chunks, embeddings):
 
     print(f"Inserted chunk successfuly ....")
         
-                        
-chunks, ids, metadatas = create_chunks(source_folder=None, chunk_size=500, chunk_overlap=100)
-print(len(chunks))
-embeddings = get_embeddings_batch(chunks)
+if __name__=="__main__":
+    chunks, ids, metadatas = create_chunks(source_folder=None, chunk_size=500, chunk_overlap=100)
+    print(len(chunks))
+    embeddings = get_embeddings_batch(chunks)
 
-add_data(chunks, embeddings)
+    add_data(chunks, embeddings)
+    chunks, ids, metadatas = create_chunks(source_folder=None, chunk_size=500, chunk_overlap=100)
+    print(len(chunks))
+    embeddings = get_embeddings_batch(chunks)
+
+    add_data(chunks, embeddings)

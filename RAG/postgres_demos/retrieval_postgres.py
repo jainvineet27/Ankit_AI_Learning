@@ -5,7 +5,7 @@ from openai import OpenAI
 from sqlalchemy import create_engine
 import pandas as pd
 
-from postgres_ingestion import get_embeddings_batch
+from ingestion_postgres import get_embeddings_batch
 
 load_dotenv()
 
@@ -32,15 +32,17 @@ limit 10
 #--- closest to the user query based on embedding similarity  we would be getting the results ... 
 
 results_df = execute_query(sql_query)
-prompt = '''
+results_content = results_df['content']
+prompt = f'''
 Kindly provide a summary of the following HR policy documents in bullet points.
 based on the provided user query : {user_query}
-and the retrieved context: {results_df.to_dict(orient='records')}
+and the retrieved context: {results_content}
 
 Kindly provide the summary in bullet points.
 Do not assume any information that is not present in the retrieved context.
 Ensure that the summary is concise and directly addresses the user query.
 '''
-response = client.responses.create(model="gpt-5.6-luna", input=f"Summarize the following HR policy documents: {results_df.to_dict(orient='records')}")
+response = client.responses.create(model="gpt-5.6-luna",
+ input=f"Summarize the following HR policy documents: {results_df.to_dict(orient='records')}")
 
 print(response.output_text)
