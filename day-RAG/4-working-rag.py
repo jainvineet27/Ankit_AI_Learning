@@ -41,7 +41,7 @@ def create_chunks(documents_list):
         for i, chunk_obj in enumerate(chunks):
             chunk_text = chunk_obj.page_content
             raw_path = chunk_obj.metadata.get(
-                "file_path"
+                "file_path",""
             )
             file_name = os.path.basename(raw_path)
             print("file name >>>>>>>>>>>", file_name)
