@@ -14,4 +14,6 @@ langchain-community
 chromadb
 pypdf
 pymupdf
-
+nltk
+sentence_transformers
+rank_bm25
