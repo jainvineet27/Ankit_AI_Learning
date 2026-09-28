@@ -3,11 +3,13 @@
 import streamlit as st
 from dotenv import load_dotenv
 from openai import OpenAI
+from confident_trace import init, span
 
 from connect_to_db import execute_query, get_schema
 
 
 load_dotenv()
+init()
 
 st.set_page_config(page_title="DataGPT", page_icon="📊", layout="wide")
 
@@ -18,6 +20,7 @@ def load_schema(table_name: str):
     return get_schema(table_name)
 
 
+@span(name="generate_sql", type="custom")
 def generate_sql(question: str, schema: str) -> str:
     """Ask OpenAI to translate a question into a read-only PostgreSQL query."""
     client = OpenAI()

@@ -1,4 +1,5 @@
 google-genai
+confident-trace
 pandas
 ipykernel
 openai
