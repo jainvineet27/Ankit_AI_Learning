@@ -1,4 +1,5 @@
 google-genai
+confident-trace
 numpy
 pandas
 dotenv
