@@ -18,7 +18,8 @@ collection.add(
 )
 # chroma_client.delete_collection
 output = collection.query(query_texts="tell me about oranges", n_results=1)
-print(output)
+print(output.get("documents"))
+
 collection = chroma_client.get_or_create_collection("abc")
 '''
 So think ki embeedding aur ids auto generate krna hai.. hume fir supply krne hai ..'''

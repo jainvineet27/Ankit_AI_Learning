@@ -33,6 +33,7 @@ if chroma_client.get_or_create_collection("demo1"):
 
 collection = chroma_client.get_or_create_collection(
     name="demo1", metadata={"hnsw:space": "cosine"})
+
 n = len(documents)
 ids = [f"id_{i}" for i in range(n)]
 

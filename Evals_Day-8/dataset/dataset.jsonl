@@ -1,0 +1,10 @@
+{"query": "What are the normal working hours of the company?", "expected_output": "The normal working hours are from 9:30 a.m. to 6:00 p.m.[cite: 1]"}
+{"query": "How many days of Earned Leave are regular employees entitled to in a calendar year?", "expected_output": "Regular employees are entitled to 18 days of Earned Leave in a calendar year[cite: 1]."}
+{"query": "Which day of the week is observed as the normal weekly off?", "expected_output": "Sunday is observed as the normal weekly off[cite: 1]."}
+{"query": "How many total days of Casual Leave can an employee take in a calendar year?", "expected_output": "Employees are entitled to up to 12 days of Casual Leave in a calendar year[cite: 1]."}
+{"query": "What is the duration of the lunch break and when is it usually taken?", "expected_output": "The lunch break is one hour, ordinarily taken between 1:00 p.m. and 2:00 p.m.[cite: 1]"}
+{"query": "How many unused leave days can be carried forward to the next year?", "expected_output": "Up to 6 days of leave may be carried forward to the next year[cite: 1]."}
+{"query": "What is the common probation period duration for new employees?", "expected_output": "The common probation period is six months[cite: 1]."}
+{"query": "How much leave credit does an employee receive on their birthday?", "expected_output": "An employee receives a 0.5-day leave credit on their birthday[cite: 1]."}
+{"query": "What is the dress code expected from Monday to Friday?", "expected_output": "Employees are expected to wear business formals from Monday to Friday[cite: 1]."}
+{"query": "How many weeks of maternity leave are eligible female employees entitled to?", "expected_output": "Eligible female employees with more than one year of continuous service are entitled to 26 weeks of maternity leave[cite: 1]."}

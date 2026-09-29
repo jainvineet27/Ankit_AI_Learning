@@ -17,3 +17,7 @@ pymupdf
 nltk
 sentence_transformers
 rank_bm25
+deepeval
+# for eval to run 
+portalocker
+portalocker[win32]

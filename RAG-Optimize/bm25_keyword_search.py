@@ -4,9 +4,10 @@ from nltk.stem import PorterStemmer
 
 
 stemmer = PorterStemmer()
-output = stemmer.stem("... ranked")
+output = stemmer.stem(
+    "...  I need to complete this assignment by tomorrow evening")
 
-out = re.sub(r"[^ \w\s]", "", output).strip().split(" ")
+out = re.sub(r"[^\w\s]", "", output).strip().split(" ")
 print(out, ">>>>>>>>>>>>>>>>>>>>>>> ")
 
 
@@ -41,7 +42,9 @@ def get_tokenize_documents(documents):
     return tokenized_documents
 
 
-def keyword_search(tokenized_documents, query, top_n=3):
+def keyword_search(documents, query, top_n=3):
+
+    tokenized_documents = get_tokenize_documents(documents)
 
     bm_25 = BM25Okapi(tokenized_documents)
     tokenized_quer = preprocess(query)
@@ -52,7 +55,8 @@ def keyword_search(tokenized_documents, query, top_n=3):
 
     new_list = sorted(zip(documents, scores),
                       key=lambda x: x[1], reverse=True)[:top_n]
-    output = [item[0] for item in new_list]
+
+    output = [item[0]+"scores is "+str(item[1]) for item in new_list]
 
     return output
 
@@ -63,8 +67,8 @@ and rernaking appaoa
 '''
 
 if __name__ == "__main__":
-    tokenized_documents = get_tokenize_documents(documents)
+    # tokenized_documents = get_tokenize_documents(documents)
     query = "I plan to finish up this project by tomorrow evening."
-
-    output = keyword_search(tokenized_documents, query, top_n=3)
-    print(output)
+    print("My question >>>  ", query)
+    output = keyword_search(documents, query, top_n=3)
+    print("my output >> ", output)

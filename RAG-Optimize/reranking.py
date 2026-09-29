@@ -24,10 +24,11 @@ def rerank(documents,  query, top_n=3):
     reranker = CrossEncoder(
         model_name_or_path="cross-encoder/ms-marco-MiniLM-L-6-v2")
     scores = reranker.predict(pairs)
+    
     print(scores)
     new_output = sorted(zip(scores, documents),
                         key=lambda x: x[0], reverse=True)
-    top_docs = [doc for out, doc in new_output][:3]
+    top_docs = [doc for out, doc in new_output][:top_n]
 
     return top_docs
 

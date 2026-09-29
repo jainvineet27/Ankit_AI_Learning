@@ -19,10 +19,11 @@ def read_file_give_me_output():
     file_text = ''
     for page in reader.pages:
         file_text += page.extract_text() + '\n'
-
+    '''Method 2  using langchain .... PyMuPDFLoader.... initialize and use lad method... pagecontent and metadata... '''
     loader = PyMuPDFLoader(file_path=file_path)
     documents = loader.load()
     print(">>>>>>>>>>>>>>>>>>>     ", len(documents))
+
     splitter = RecursiveCharacterTextSplitter(
         chunk_size=500, chunk_overlap=100, separators=["\n\n", "\n", ".", ""])
     chunks = splitter.split_documents(documents)
@@ -43,7 +44,7 @@ def using_while_loop_get_chunks(chunk_size=500, chunk_overlap=100, start=0, turn
         end = start + chunk_size
         chunk = file_text[start:end]
         metadata = {"chunk_no": turn, "file_name": file_name}
-        id = f"id_{turn}"
+        id = f"id_{turn}_{file_name}"
         turn += 1
         ids.append(id)
         metadatas.append(metadata)

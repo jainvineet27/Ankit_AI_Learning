@@ -16,7 +16,14 @@ client = OpenAI()
 
 def read_document():
     documents_list = []
+    search_root = "."
     folder_name = "source"
+    for root, dirs, files in os.walk(search_root):
+        if folder_name in dirs:
+            found_path = os.path.join(root, folder_name)
+            print("Folder mil gaya:", os.path.abspath(found_path))
+            break  # Pehla match milte hi ruk jao
+
     if not os.path.isdir(folder_name):
         raise FileNotFoundError(f"{folder_name} is not found")
 
@@ -41,7 +48,7 @@ def create_chunks(documents_list):
         for i, chunk_obj in enumerate(chunks):
             chunk_text = chunk_obj.page_content
             raw_path = chunk_obj.metadata.get(
-                "file_path",""
+                "file_path", ""
             )
             file_name = os.path.basename(raw_path)
             print("file name >>>>>>>>>>>", file_name)
@@ -66,8 +73,8 @@ def ingestion_into_vdb(collection, embeddings, documents, metadatas, ids):
     )
 
 
-def similarity_search(collection, user_embedding):
-    return collection.query(query_embeddings=user_embedding, n_results=3)
+def similarity_search(user_embedding, top_k=3):
+    return collection.query(query_embeddings=user_embedding, n_results=top_k)
 
 
 if __name__ == "__main__":
@@ -79,9 +86,11 @@ if __name__ == "__main__":
 
     user_query = "Explain me about Termination and maternity policy in bullet points in 50 word each"
     user_embedding = create_batch_embeddings([user_query])
-    search_results = similarity_search(collection, user_embedding)
+    search_results = similarity_search(user_embedding, top_k=3)
 
     # Retrieved chunk texts extract kar rahe hain prompt ke liye
+    ''' result.get("documents") -->  list of list for x in lsitof list make a new list ... read make a string ... '''
+
     retrieved_context = "\n".join(search_results["documents"][0])
 
     prompt = f"""
