@@ -1,3 +1,4 @@
+from deepeval.models import OpenAIModel
 from deepeval.metrics import AnswerRelevancyMetric, FaithfulnessMetric, ContextualRecallMetric, ContextualPrecisionMetric
 from deepeval import evaluate
 from deepeval.test_case import LLMTestCase
@@ -17,11 +18,53 @@ from goldendataset import read_golden_datset
 
 from sentence_transformers import CrossEncoder
 
+from nltk.stem import PorterStemmer
+from rank_bm25 import BM25Okapi
+import re
+
 load_dotenv()
+
+stemmer = PorterStemmer()
+# EVAL_MODEL = "gpt-5.6-luna"
+
+EVAL_MODEL = OpenAIModel(
+    model="gpt-5.4-nano",
+    temperature=0
+)
+reranker = CrossEncoder(
+    model_name_or_path="cross-encoder/ms-marco-MiniLM-L-6-v2")
+
 
 client = OpenAI()
 cr_client = PersistentClient("./chromadb")
 collection = cr_client.get_or_create_collection("rag_collection")
+
+
+def preprocess(doc):
+    clean = re.sub(r"[^\w\s]", "", doc).strip().lower()
+    tokenized_doc = stemmer.stem(clean).split(" ")
+
+    return tokenized_doc
+
+
+def best_matching(query, documents, top_k=3):
+    tokenized_document_list = []
+    for doc in documents:
+        tokenized_document = preprocess(doc)
+        tokenized_document_list.append(tokenized_document)
+
+    bm25 = BM25Okapi(tokenized_document_list)
+    tokenzied_query = preprocess(query)
+
+    scores = bm25.get_scores(tokenzied_query)
+
+    print("BM25", scores)
+    result = sorted(zip(scores, documents),
+                    key=lambda x: x[0], reverse=True)
+
+    final = [item[1] for item in result]
+
+    return final
 
 
 def create_embeddings(chunks, dimension=300):
@@ -79,12 +122,12 @@ def ingest_into_vector_db(chunks, metadatas, ids, embeddings):
     print("Information has been added succesfully ...")
 
 
-def retrieve_information(query_embeddings, top_k=5):
+def retrieve_information(query_embeddings, top_k=20):
     print("inside the fetching information from retrieval ")
 
     results = collection.query(
         query_embeddings=query_embeddings, n_results=top_k)
-    #print(results.get("documents"))
+    # print(results.get("documents"))
     print("information is retrieved successfully.. ")
     return results.get("documents", "")
     # list of list will be returned ....
@@ -95,12 +138,9 @@ def return_actual_ouput(query, retrieved_context):
     Based on the user input Kindly help to provide the answer 
     user asked {query}
 
-    retrieved context  : {retrieved_context}
-    
-    Start your answer by stating like so you asked and then few words from the query minimum {query[:20]} and then begin..
-    Let me think ... 
+    retrieved context  : {retrieved_context}    
     Ensure that the summary is concise and directly addresses the user query.
-    Keep the answer limit  upto 50 -80 words. 
+    Keep the answer limit  upto 15-25 words. 
     """
 
     response = client.responses.create(model="gpt-5.6-luna", input=prompt)
@@ -111,8 +151,6 @@ def return_actual_ouput(query, retrieved_context):
 def re_ranking(query, documents, top_k=3):
 
     pairs = [[q, context] for q, context in zip(query, documents)]
-    reranker = CrossEncoder(
-        model_name_or_path="cross-encoder/ms-marco-MiniLM-L-6-v2")
 
     scores = reranker.predict(pairs)
 
@@ -139,26 +177,27 @@ for i in range(len(queries)):
     retrieved_context = [sub_item for item in retrieve_information(
         query_embeddings=query_embedding) for sub_item in item]
 
-    final_retrieved_context = re_ranking(query, retrieved_context, 3)
+    top_bm_documents = best_matching(query, retrieved_context, 5)
+    rerank_retrieved_context = re_ranking(query, top_bm_documents, 3)
 
-    actual_output = return_actual_ouput(final_retrieved_context, query)
+    actual_output = return_actual_ouput(query, rerank_retrieved_context)
 
     test_case = LLMTestCase(
         expected_output=expected_output,
         actual_output=actual_output,
         input=query,
-        retrieval_context=retrieved_context
+        retrieval_context=rerank_retrieved_context
 
     )
 
     test_case_list.append(test_case)
 
-recall_context = ContextualRecallMetric(threshold=.7)
-precision_context = ContextualPrecisionMetric(threshold=.7)
+recall_context = ContextualRecallMetric(threshold=.7, model=EVAL_MODEL)
+precision_context = ContextualPrecisionMetric(threshold=.7, model=EVAL_MODEL)
 
-answer_relevancy = AnswerRelevancyMetric(threshold=.7, )
+answer_relevancy = AnswerRelevancyMetric(threshold=.7, model=EVAL_MODEL)
 faithfulness = FaithfulnessMetric(
-    threshold=.7)
+    threshold=.7, model=EVAL_MODEL)
 
 
 result = evaluate(test_cases=test_case_list, metrics=[
