@@ -3,6 +3,7 @@ import streamlit as st
 from google import genai
 from google.genai import types
 from dotenv import load_dotenv
+from confident_trace import init, span, update_trace
 
 # ---------------------------------------------------------
 # 1. SETUP & GEMINI CLIENT INITIALIZATION
@@ -14,6 +15,7 @@ st.title("Document RAG Chat")
 # (Aap API key yahan pass kar sakte hain ya environment variable GEMINI_API_KEY use kar sakte hain)
 #API_KEY = os.environ.get("GEMINI_API_KEY", "YOUR_GEMINI_API_KEY")
 load_dotenv() 
+init()
 api_key = os.getenv("API_KEY")
 client = genai.Client(api_key=api_key)
 
@@ -67,36 +69,38 @@ for msg in st.session_state.messages:
 user_input = st.chat_input("Apne document ke bare mein sawal poochein...")
 
 if user_input:
-    # Step A: User message show aur save karein
-    st.session_state.messages.append({"role": "user", "content": user_input})
-    with st.chat_message("user"):
-        st.write(user_input)
+    with span("streamlit chat turn", type="agent"):
+        # Step A: User message show aur save karein
+        st.session_state.messages.append({"role": "user", "content": user_input})
+        with st.chat_message("user"):
+            st.write(user_input)
 
-    # Step B: Vector DB se relevant context retrieve karein
-   # retrieved_context = retrieve_relevant_chunks(user_input)
+        # Step B: Vector DB se relevant context retrieve karein
+        # retrieved_context = retrieve_relevant_chunks(user_input)
 
-    # Step C: Gemini Model se response generate karein
-    with st.chat_message("assistant"):
-        with st.spinner("Thinking & reading context..."):
-            # Grounded prompt create karein
-            prompt = f"""
+        # Step C: Gemini Model se response generate karein
+        with st.chat_message("assistant"):
+            with st.spinner("Thinking & reading context..."):
+                # Grounded prompt create karein
+                prompt = f"""
         Neeche diye gaye context ke aadhar par user ke sawal ka answer karein.
         Agar context mein answer nahi hai, toh saaf bata dein.
             
                 User Question:
                 {user_input}
                 """
-            # Gemini 2.5 Flash call
-            response = client.models.generate_content(
-                model="gemini-2.5-flash",
-                contents=prompt,
-                config=types.GenerateContentConfig(
-                    temperature=0.2,
-                ),
-            )
-            
-            assistant_reply = response.text
-            st.write(assistant_reply)
+                # Gemini 2.5 Flash call
+                response = client.models.generate_content(
+                    model="gemini-2.5-flash",
+                    contents=prompt,
+                    config=types.GenerateContentConfig(
+                        temperature=0.2,
+                    ),
+                )
 
-    # Step D: Assistant response ko memory mein save karein
-    st.session_state.messages.append({"role": "assistant", "content": assistant_reply})
+                assistant_reply = response.text
+                st.write(assistant_reply)
+                update_trace(input=user_input, output=assistant_reply)
+
+        # Step D: Assistant response ko memory mein save karein
+        st.session_state.messages.append({"role": "assistant", "content": assistant_reply})
