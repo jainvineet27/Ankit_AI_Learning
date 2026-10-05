@@ -1,6 +1,10 @@
 from langchain_core.output_parsers import StrOutputParser
 from langchain_core.prompts import PromptTemplate
 from langchain_openai import ChatOpenAI
+from tavily import TavilyClient
+from langchain_core.tools import tool
+
+from langchain_core.agents import create_agents
 
 from dotenv import load_dotenv
 
@@ -8,14 +12,22 @@ load_dotenv()
 
 llm = ChatOpenAI(model='gpt-5.6-luna')
 
-prompt = PromptTemplate(
-    template="Say  {input} in {output_language} language ")
+# To install: pip install tavily-python
 
-chain = prompt | llm | StrOutputParser()
+tavily_client = TavilyClient()
 
-response = chain.invoke(
-    {"input": "hey how are you doing ",
-     "output_language": "Dutch"}
-)
 
-print(response)
+@tool
+def web_search(query: str):
+    response = tavily_client.search(
+        query=query
+        search_depth="advanced"
+    )
+    print(response)
+
+
+# create an agent
+# make norma python method
+# make a mehtod with decorator
+# tarvil method
+# fuse with the langfuse
