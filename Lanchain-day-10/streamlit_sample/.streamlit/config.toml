@@ -1,0 +1,15 @@
+[theme]
+base = "dark"
+primaryColor = "#35D6B4"
+backgroundColor = "#101817"
+secondaryBackgroundColor = "#1B2724"
+textColor = "#ECF5F1"
+borderColor = "#33433E"
+linkColor = "#FF987E"
+font = "'DM Sans':https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&display=swap"
+headingFont = "'Manrope':https://fonts.googleapis.com/css2?family=Manrope:wght@500;600;700;800&display=swap"
+baseRadius = "8px"
+buttonRadius = "8px"
+chartCategoricalColors = ["#35D6B4", "#FF987E", "#F4CF65", "#76B7FF", "#BA9BE8"]
+dataframeHeaderBackgroundColor = "#263631"
+dataframeHeaderTextColor = "#ECF5F1"
