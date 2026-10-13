@@ -93,7 +93,7 @@ async def main():
     print("\n--- Final Response ---")
     
     output =execute_query(response.output_text.strip() )
-    print("Running the sql query >>>>>>>>> ")
+    print("Running the sql query >>>>>>>>> ",output.head())
     print(response.output_text)
 
 

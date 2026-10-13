@@ -16,6 +16,8 @@ class Person(BaseModel):
 
 # 2. Model & Parser initialize karein
 model = ChatOpenAI(model="gpt-5.6-luna", temperature=0)
+
+
 parser = JsonOutputParser(pydantic_object=Person)
 
 # 3. Prompt mein format instructions inject karein

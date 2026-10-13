@@ -1,0 +1,3 @@
+/init Kindly understnad the project repositroy and right inside it the project structre , coding format , languages , test and its coverages , documetnation development workflow git and pr guidelines fraework specific convetiones
+
+so we have the code folder by fodler and hence it wold be easu to make the blocks or modules for eeach folder ...

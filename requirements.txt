@@ -21,3 +21,13 @@ deepeval
 # for eval to run 
 portalocker
 portalocker[win32]
+
+#observability and evlaution platform 
+langsmith
+
+fastmcp
+
+langchain-openai
+
+tavily
+typesafe-sdk

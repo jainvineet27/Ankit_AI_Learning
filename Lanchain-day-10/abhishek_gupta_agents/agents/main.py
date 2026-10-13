@@ -9,7 +9,7 @@ from langchain_core.agents import create_agents
 from dotenv import load_dotenv
 
 load_dotenv()
-
+    
 llm = ChatOpenAI(model='gpt-5.6-luna')
 
 # To install: pip install tavily-python
